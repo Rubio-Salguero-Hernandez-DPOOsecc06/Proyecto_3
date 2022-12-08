@@ -155,6 +155,7 @@ public class LogInPanels extends JPanel implements ActionListener{
 			this.add(panelName);
 			this.repaint();
 			this.revalidate();
+			
 		}else if(e.getSource()==administrador) {
 			
 			//instance of Log in Panels

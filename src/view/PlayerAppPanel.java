@@ -1,5 +1,6 @@
 package view;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 
 import BaseDatos.GuardaDatos;
@@ -9,6 +10,9 @@ import model.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 public class PlayerAppPanel extends JPanel implements ActionListener {
     
@@ -20,26 +24,103 @@ public class PlayerAppPanel extends JPanel implements ActionListener {
     JButton eliminarEquipo = new JButton("Eliminar Equipo");
     JButton verEstadisticas = new JButton("ver estadistica");
     JButton salir = new JButton("Salir de la aplicacion");
+    JLabel bienvenidaJugador = new JLabel("Bienvenido a Ultimate Soccer Fantasy");
+    JLabel seleccionTexto = new JLabel("Por favor elije una de las siguientes opciones:");
     JComboBox equipos;
+    
+	//WELCOME IMAGE 1
+	BufferedImage backImage = null;
+	
+	
 
     public PlayerAppPanel(PlayerController _playerController, GuardaDatos _baseDatos, Participante _participante){
         this.baseDatos = _baseDatos;
         this.playerController = _playerController;
         this.participante = _participante;
-        setLayout(new GridLayout(5,1));
+        
+        setLayout(new BorderLayout());
         this.playerController = _playerController;
         this.baseDatos = _baseDatos;
         this.participante = _participante;
-        add(crearEquipo);
-        add(verEquipo);
-        add(eliminarEquipo);
-        add(verEstadisticas);
-        add(salir);
+        
+    	try {
+    		backImage = ImageIO.read(new File("InterfaceFiles/Participante.jpg"));
+    	} catch (IOException e) {
+    		e.printStackTrace();
+    	}
+    	
+		JPanel vertical = new JPanel();
+		vertical.setLayout(new BoxLayout(vertical, BoxLayout.Y_AXIS));
+		vertical.setPreferredSize(new Dimension(600,500));
+    	
+		JPanel vertical2 = new JPanel();
+		vertical2.setLayout(new BoxLayout(vertical2, BoxLayout.Y_AXIS));
+		
+    	
+    	Image dimg = backImage.getScaledInstance(600, 360,
+    	        Image.SCALE_SMOOTH);
+    	
+    	ImageIcon dimgRe = new ImageIcon(dimg);
+    	
+    	JLabel picLabel = new JLabel(dimgRe);
+    	
+    	//Config textos
+    	
+		bienvenidaJugador.setFont(new Font("MV Boli",Font.BOLD,25));
+		bienvenidaJugador.setPreferredSize(new Dimension(600, 30));
+		bienvenidaJugador.setHorizontalAlignment(SwingConstants.CENTER);
+		
+		seleccionTexto.setFont(new Font("MV Boli",Font.PLAIN,20));
+		seleccionTexto.setPreferredSize(new Dimension(600, 20));
+		seleccionTexto.setHorizontalAlignment(SwingConstants.CENTER);
+    	
+    	//Tamanos botones
+    	
+    	crearEquipo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		verEquipo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		eliminarEquipo.setAlignmentX(Component.CENTER_ALIGNMENT);
+		verEstadisticas.setAlignmentX(Component.CENTER_ALIGNMENT);
+		salir.setAlignmentX(Component.CENTER_ALIGNMENT);
+		
+		//Set size
+    	crearEquipo.setMaximumSize(new Dimension(200,50));
+		verEquipo.setMaximumSize(new Dimension(200,50));
+		eliminarEquipo.setMaximumSize(new Dimension(200,50));
+		verEstadisticas.setMaximumSize(new Dimension(200,50));
+		salir.setMaximumSize(new Dimension(200,50));
+		
+    	crearEquipo.setPreferredSize(new Dimension(100, 50));
+		verEquipo.setPreferredSize(new Dimension(100, 50));
+		eliminarEquipo.setPreferredSize(new Dimension(100, 50));
+		verEstadisticas.setPreferredSize(new Dimension(100, 50));
+		salir.setPreferredSize(new Dimension(100, 50));
+    	
         crearEquipo.addActionListener(this);
         verEquipo.addActionListener(this);
         eliminarEquipo.addActionListener(this);
         verEstadisticas.addActionListener(this);
         salir.addActionListener(this);
+        
+        
+        //addition to vertical2
+        vertical2.add(bienvenidaJugador);
+        vertical2.add(picLabel);
+        vertical2.add(Box.createRigidArea(new Dimension(0,10)));
+        vertical2.add(seleccionTexto);
+        
+        add(vertical2, BorderLayout.NORTH);
+        vertical.add(Box.createRigidArea(new Dimension(0,10)));
+        vertical.add(crearEquipo);
+        vertical.add(Box.createRigidArea(new Dimension(0,10)));
+        vertical.add(verEquipo);
+        vertical.add(Box.createRigidArea(new Dimension(0,10)));
+        vertical.add(eliminarEquipo);
+        vertical.add(Box.createRigidArea(new Dimension(0,10)));
+        vertical.add(verEstadisticas);
+        vertical.add(Box.createRigidArea(new Dimension(0,10)));
+        vertical.add(salir);
+        add(Box.createRigidArea(new Dimension(0,10)));
+        add(vertical, BorderLayout.CENTER);
     }
 
     @Override

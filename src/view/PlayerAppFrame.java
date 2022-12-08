@@ -19,7 +19,7 @@ public class PlayerAppFrame extends JFrame{
 		this.setTitle("Ultimate Soccer Fantasy - Participante"); //set title
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setResizable(false);
-		this.setSize(1280,720); //set size
+		this.setSize(600,800); //set size
 		this.setLocationRelativeTo(null);
 		
 		ImageIcon icon = new ImageIcon("InterfaceFiles/AppIcon.png");

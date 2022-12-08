@@ -179,6 +179,9 @@ public class PlayerLogInPanel extends JPanel implements ActionListener{
 				GuardaDatos baseDatos = controller.getBaseDatos();
 				PlayerController playerController = controller.crearPlayerController(participante);
 				new PlayerAppFrame(playerController, baseDatos, participante);
+				JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this); //Returns the Frame where the Panel is located
+				topFrame.dispose(); //Closes that frame to leave only the new one for the Admin App.
+				
 			}else{
 				JOptionPane.showMessageDialog(null, "No se encontro el participante");
 			}
