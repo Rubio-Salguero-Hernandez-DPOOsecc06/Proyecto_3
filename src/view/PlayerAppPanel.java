@@ -44,7 +44,7 @@ public class PlayerAppPanel extends JPanel implements ActionListener {
         this.participante = _participante;
         
     	try {
-    		backImage = ImageIO.read(new File("InterfaceFiles/Participante.jpg"));
+    		backImage = ImageIO.read(new File("InterfaceFiles/doan.jpg"));
     	} catch (IOException e) {
     		e.printStackTrace();
     	}
