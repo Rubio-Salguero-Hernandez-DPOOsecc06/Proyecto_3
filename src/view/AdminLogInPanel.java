@@ -186,7 +186,12 @@ public class AdminLogInPanel extends JPanel implements ActionListener{
 			if (existe) {
 				AdminController adminController = controller.crearAdminController();
 				GuardaDatos baseDatos = controller.getBaseDatos();
-				new AdminFrame(adminController, baseDatos);
+				
+				new AdminFrame(adminController, baseDatos); //
+				JFrame topFrame = (JFrame) SwingUtilities.getWindowAncestor(this); //Returns the Frame where the Panel is located
+				topFrame.dispose(); //Closes that frame to leave only the new one for the Admin App.
+				
+				
 			}else{
 				JOptionPane.showMessageDialog(null, "Acceso denegado");
 			}

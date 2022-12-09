@@ -67,11 +67,11 @@ public class PlayerAppPanel extends JPanel implements ActionListener {
     	//Config textos
     	
 		bienvenidaJugador.setFont(new Font("MV Boli",Font.BOLD,25));
-		bienvenidaJugador.setPreferredSize(new Dimension(600, 30));
+		bienvenidaJugador.setPreferredSize(new Dimension(600, 40));
 		bienvenidaJugador.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		seleccionTexto.setFont(new Font("MV Boli",Font.PLAIN,20));
-		seleccionTexto.setPreferredSize(new Dimension(600, 20));
+		seleccionTexto.setPreferredSize(new Dimension(600, 30));
 		seleccionTexto.setHorizontalAlignment(SwingConstants.CENTER);
     	
     	//Tamanos botones
