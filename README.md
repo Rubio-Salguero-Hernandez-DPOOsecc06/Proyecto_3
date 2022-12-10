@@ -1,18 +1,15 @@
-## Getting Started
+## Proyecto 3 - Diseño y Programación Orientada a Objetos - Ultimate Soccer Fantasy
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Este es el repositorio que contiene todo el progreso realizado para la construcción de la aplicación de Ultimate Soccer Fantasy de acuerdo a las especificaciones dadas en el curso del semestre 2022-20.
 
-## Folder Structure
+Importante: En la carpeta de "Entrega 2" se encuentra un documento pdf que contiene explicaciones de cómo navegar este proyecto y cómo probar la versión que se alcanzó a construir de la aplicación.
 
-The workspace contains two folders by default, where:
+## Integrantes del grupo (número 5 del curso):
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- Diego Andrés Rubio
+- Alonso Hernández Tavera (202012367)
+- Juan David Salguero
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Información de contacto
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
-
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+- Correo electrónico: f.hernandezt@uniandes.edu.co
